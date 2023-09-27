@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Book Store</title>
+    
+
+</header>
+<body>
+     <div class ="log">
+        <a th:href="@{/login}">Log Out</a>
+    </div>
+    
+    <div class = "search">
+       <form action="/books/search" method="POST">
+        <label for="name">Book Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    
+    <div class="shopping_list_top">Total:</div>
+        <div class="shopping_list_border">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="shopping_list_title">
+            
+                 <td >User Id</td>
+                 <td >Order Id</td>
+                 <td >Total Price</td>
+      
+            </tr>
+       </table>
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+            <tr class="shopping_product_list" id="shoppingProduct_01">
+                
+                <td th:text=${order.user.userId}></td>
+                <td th:text=${order.orderId}></td>
+                <td th:text=${order.total_price}></td>
+ 
+            </tr>
+    </table>     
+    </div>
+    
+    <div class="shopping_list_top">Items in shopping cart:</div>
+         <div class="shopping_list_border">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="shopping_list_title">
+            
+                <td class="shopping_list_title_1">Book_Id</td>
+                <td class="shopping_list_title_2">Quantity</td>
+       
+            </tr>
+        </table>  
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+   
+              <tr th:each="order_detail: ${order.getOrder_books()}">
+              
+                    <td class="shopping_product_list_1" th:text=${order_detail.book.bookId}></td>
+                    <td class="shopping_product_list_1" th:text=${order_detail.quantity}></td>
+         
+             </tr>  
+        </table>   
+     <div class="shopping_list_end">
+         <ul>
+       
+         <a th:href="@{/confirm/{id}(id=${order.user.userId})}">
+                     <button>Confirm your order</button>
+        </a>
+      
+        </ul>
+    </div>
+  </div>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+     <title>Book Web Application</title>
+     
+     <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class ="log">
+        <a th:href="@{/login}">Log Out</a>
+    </div>
+   <div id= "wrapper">
+      <div id="header">
+         <h2>User Management</h2>
+      </div>
+   
+      <div id="container">
+		  <input type="button" value="Add User" 
+                       onclick="window.location.href='add-user-form.html';return false;"
+                       class="add-student-button" />
+           <div id="content">
+                <!-- button to add book -->
+                
+                 <table>
+                      <tr>
+                         <th>Name</th>
+                         <th>Password</th>
+                         <th>Pay Method</th>
+                         <th>User Role</th>
+                      </tr>
+                        
+                      <tr th:each="user : ${users}">
+                           <td th:text=${user.username}></td> 
+                           <td th:text=${user.password}></td> 
+                           <td th:text=${user.pay_method}></td> 
+                           <td th:text=${user.user_role.role_name}></td> 
+                           <td> <a th:href="@{/users/{id}/update(id=${user.userId})}">
+                                <button>Update User</button>
+                           </td>
+                           <td> <a th:href="@{/users/{id}/delete(id=${user.userId})}">
+                                <button>Delete User</button>
+                           </td>
+                      </tr>
+                 </table>
+           </div>
+      </div>
+      <div>
+		  <a th:href="@{/books}">
+          <button>List of Books</button>
+	  </div>
+	  
+	   <div>
+		  <a th:href="@{/orders}">
+          <button>List of Orders</button>
+	  </div>
+   </div>
+</body>
+</html>

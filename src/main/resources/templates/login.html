@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Login Page - Book Web Aplication</title>
+</head>
+<body>
+	<h2>Login Page</h2>
+	<form th:action="@{/accesslogin}" method="post">
+		
+		<div th:if="${errorMessage != null}" >
+            <p th:text="${errorMessage}"></p>
+        </div>
+		
+		<div class="container1">
+			<label for="username">Username: </label>
+			<input type="text" name="username" required />
+		</div>
+		
+		<div class="container2" style="margin-top: 30px;">
+			<label for="password">Password: </label>
+			<input type="password" name="password" required />
+		</div>
+		
+		<tr>
+             <td><label></label></td>
+             <td><input type="submit" name="Save" class="save"/> </td>
+        </tr>
+	</form>
+</body>
+</html>

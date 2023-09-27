@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Update Book</title>
+   <link type="text/css" rel="stylesheet" href="css/style.css">
+   <link type="text/css" rel="stylesheet" href="css/add-student-style.css">
+</head>
+<body>
+   <div id="wrapper">
+       <div id="header">
+            <h2>Book Management</h2>
+       </div>   
+       <div id="container">
+            <h3>Update Book</h3>
+            
+            <form th:action="@{/save}" method="post" th:object="${book}">
+				<td><input type="hidden" name="bookId" th:value="${book.bookId}"/> </td>
+                <table>
+                   <tbody>
+                     <tr>
+                       <td><label>Name: </label></td>
+                       <td><input type="text" name="name" th:value="${book.name}"/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Author: </label></td>
+                       <td><input type="text" name="author" th:value="${book.author}"/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Publisher: </label></td>
+                       <td><input type="text" name="publisher" th:value="${book.publisher}"/> </td>
+                     </tr>
+                     
+                      <tr>
+                       <td><label>Price: </label></td>
+                       <td><input type="text" name="price" th:value="${book.price}"/> </td>
+                     </tr>
+                     
+                      <tr>
+                       <td><label></label></td>
+                       <td><input type="submit" name="Save" class="save"/> </td>
+                      </tr>
+                     
+                   </tbody>
+                
+                </table>
+            </form>
+            
+       </div>
+    
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Book Store</title>
+   
+</header>
+<body>
+    <div class ="log">
+        <a th:href="@{/login}">Log Out</a>
+    </div>
+    
+    <div class = "search">
+       <form action="/books/search" method="POST">
+        <label for="name">Book Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    
+    <div class ="shopping_cart">
+        <ul>
+           <a href="/checkout"><button>Check Out</button></a>
+        </ul>
+    </div>
+    
+    <div class ="list_books">       
+         <h2>List of Books</h2>    
+         <div class="book_class" style="height:250px;">
+              <dl id="book_history" style="margin-right: 60px;">
+              <tr th:each="book : ${books}">
+                  <dd style="margin-right: 60px;"><font class="book_title"><td th:text=${book.name}></td></font><br />
+                        by <td th:text=${book.author}></td> <br />
+                        <font class="book_publish"><td th:text=${book.name}> </td></td></font><br />
+                        Price Online: <td th:text=${book.price}></td>
+                  
+                        <form th:action="@{/orderbook/{id}(id=${book.bookId})}" method="post">
+    
+                            <label for="quantity">Quantity:</label>
+                            <input type="text" id="quantity" name="quantity" value="1">
+                            <button type="submit" >Order</button>
+                            
+                        </form>
+                    </dd>
+                 </tr>
+                </dl>
+            </div>
+    </div>
+</body>
+</html>

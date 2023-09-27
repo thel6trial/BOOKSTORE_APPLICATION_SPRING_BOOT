@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <title>Book Web Application</title>
+     
+</head>
+
+<body>
+	<div class ="log">
+        <a th:href="@{/login}">Log Out</a>
+    </div>
+   <div id= "wrapper">
+      <div id="header">
+         <h2>Order Management</h2>
+      </div>
+   
+      <div id="container">
+           <div id="content">
+                <!-- button to add book -->
+                
+                 <table>
+                      <tr>
+                         <th>Order ID</th>
+                         <th>User ID</th>
+                         <th>User's name</th>
+                         <th>Total Price</th>
+                      </tr>
+                        
+                      <tr th:each="order : ${orders}">
+                           <td th:text=${order.orderId}> </td>
+                           <td style="margin-left:50px;" th:text=${order.user.userId}></td>
+                           <td style="margin-left:50px;" th:text=${order.user.username}> </td>
+                           <td style="margin-left:50px;" th:text=${order.total_price}> </td>
+                           
+                      </tr>                     
+                 </table>
+           </div>
+      </div>
+      
+      <div>
+		  <a th:href="@{/books}">
+          <button>List of Books</button>
+	  </div>
+	  
+      <div>
+		  <a th:href="@{/users}">
+          <button>List of Users</button>
+	  </div>
+     
+   </div>
+
+</body>
+
+</html>
+
+
+
+
+

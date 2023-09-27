@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Update User</title>
+   <link type="text/css" rel="stylesheet" href="css/style.css">
+   <link type="text/css" rel="stylesheet" href="css/add-student-style.css">
+</head>
+<body>
+   <div id="wrapper">
+       <div id="header">
+            <h2>Book Management</h2>
+       </div>   
+       <div id="container">
+            <h3>Update User</h3>
+            
+            <form th:action="@{/saveuser}" method="post" th:object="${user}">
+               <td><input type="hidden" name="userId" th:value="${user.userId}"/> </td>
+                
+                <table>
+                   <tbody>
+                     <tr>
+                       <td><label>Name: </label></td>
+                       <td><input type="text" name="username" th:value="${user.username}"/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Password: </label></td>
+                       <td><input type="password" name="password" th:value="${user.password}"/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Pay Method: </label></td>
+                       <td><input type="text" name="pay_method" th:value="${user.pay_method}"/> </td>
+                     </tr>
+                     
+                      <tr>
+                       <td><label>Role_ID: </label></td>
+                       <td><input type="text" name="role_id" th:value="${user.user_role.roleId}"/> </td>
+                     </tr>
+                     
+                      <tr>
+                       <td><label></label></td>
+                       <td><input type="submit" name="Save" class="save"/> </td>
+                      </tr>
+                     
+                   </tbody>
+                
+                </table>
+            </form>
+            
+       </div>
+    
+   </div>
+
+</body>
+</html>

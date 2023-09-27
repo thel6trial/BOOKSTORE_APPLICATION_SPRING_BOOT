@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Add User</title>
+   <link type="text/css" rel="stylesheet" href="css/style.css">
+   <link type="text/css" rel="stylesheet" href="css/add-student-style.css">
+</head>
+<body>
+   <div id="wrapper">
+       <div id="header">
+            <h2>Book Management</h2>
+       </div>   
+       <div id="container">
+            <h3>Add User</h3>
+            
+            <form th:action="@{/users}" method="post">
+            
+                <table>
+                   <tbody>
+                     <tr>
+                       <td><label>Username: </label></td>
+                       <td><input type="text" name="username" required/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Password: </label></td>
+                       <td><input type="password" name="password" required/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Pay Method: </label></td>
+                       <td><input type="text" name="pay_method" required/> </td>
+                     </tr>
+                     
+                     <tr>
+                       <td><label>Role ID: </label></td>
+                       <td><input type="text" name="role_id" required/> </td>
+                     </tr>
+                     
+                      <tr>
+                       <td><label></label></td>
+                       <td><input type="submit" name="Save" class="save"/> </td>
+                      </tr>
+                     
+                   </tbody>
+                
+                </table>
+            </form>
+            
+       </div>
+    
+   </div>
+
+</body>
+</html>

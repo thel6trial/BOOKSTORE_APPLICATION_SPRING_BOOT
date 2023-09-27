@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <title>Book Web Application</title>
+     
+</head>
+
+<body>
+	<div class ="log">
+        <a th:href="@{/login}">Log Out</a>
+    </div>
+   <div id= "wrapper">
+      <div id="header">
+         <h2>Book Management</h2>
+      </div>
+   
+      <div id="container">
+		  <a href="/add-book-form.html"><button>Add Book</button></a>
+           <div id="content">
+                <!-- button to add book -->
+                
+                 <table>
+                      <tr>
+                         <th>Name</th>
+                         <th>Author</th>
+                         <th>Publisher</th>
+                         <th>Price</th>
+                         <th>Action</th>
+                      </tr>
+                        
+                      <tr th:each="book : ${books}">
+                           <td th:text=${book.name}> </td>
+                           <td th:text=${book.author}></td>
+                           <td th:text=${book.publisher}> </td>
+                           <td th:text=${book.price}> </td>
+                           <td> 
+							   <a th:href="@{/books/{id}/update(id=${book.bookId})}">
+                                <button>Update Book</button>
+                              </a>
+                           </td>
+                           <td> 
+							   <a th:href="@{/books/{id}/delete(id=${book.bookId})}">
+                                <button>Delete Book</button>
+                              </a>
+                           </td>
+						   
+                              
+                      </tr>                     
+                 </table>
+           </div>
+      </div>
+      <div>
+		  <a th:href="@{/users}">
+          <button>List of Users</button>
+	  </div>
+	  
+	  <div>
+		  <a th:href="@{/orders}">
+          <button>List of Orders</button>
+	  </div>
+     
+   </div>
+
+</body>
+
+</html>
+
+
+
+
+
